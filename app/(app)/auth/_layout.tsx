@@ -1,12 +1,19 @@
-import Toast from "react-native-toast-message";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { View } from "react-native";
 import { Slot } from "expo-router";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default (): JSX.Element => {
+  const insets = useSafeAreaInsets();
+
   return (
-    <SafeAreaView className="flex-1">
+    <View
+      style={{
+        marginTop: -insets.top,
+        marginBottom: -insets.bottom,
+      }}
+      className="flex-1 relative"
+    >
       <Slot />
-    </SafeAreaView>
+    </View>
   );
 };
