@@ -9,7 +9,7 @@ export const AppSplashScreen: React.FC = () => {
       resizeMode="cover"
       source={ASSETS.AUTH_BG}
     >
-      <Image source={ASSETS.BRAND_LOGO} className="w-48 h-48 mb-8" />
+      <Image source={ASSETS.BRAND_LOGO} className="w-64 h-64 mb-8" />
       <Text className="text-3xl text-white font-bold">Uni-Pulse</Text>
     </ImageBackground>
   );

@@ -8,7 +8,7 @@ export default (): JSX.Element => {
 
   React.useEffect(() => {
     setTimeout(() => {
-      // router.replace("/(app)/auth/login");
+      router.replace("/(app)/auth/login");
     }, 2000);
   }, []);
 
