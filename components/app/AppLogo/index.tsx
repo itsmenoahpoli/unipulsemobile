@@ -2,14 +2,8 @@ import React from "react";
 import { Image } from "react-native";
 import { ASSETS } from "@/constants";
 
-export const AppLogo: React.FC<{ size?: number; className?: string }> = ({
-  size = 48,
-  className,
-}) => {
+export const AppLogo: React.FC<{ className?: string }> = ({ className }) => {
   return (
-    <Image
-      source={ASSETS.BRAND_LOGO}
-      className={`w-${size} h-${size} ${className}`}
-    />
+    <Image source={ASSETS.BRAND_LOGO} className={`w-48 h-48 ${className}`} />
   );
 };

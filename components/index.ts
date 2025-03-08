@@ -1,9 +1,14 @@
 /**
  * App components
  */
-export { AppSplashScreen } from "./app/AppSplashScreen";
-export { AppLogo } from "./app/AppLogo";
-export { AppTextInput } from "./app/AppTextInput";
+export {
+  AppSplashScreen,
+  AppLogo,
+  AppTextInput,
+  AppCheckbox,
+  AppLink,
+  AppButton,
+} from "./app";
 
 /**
  * Module components

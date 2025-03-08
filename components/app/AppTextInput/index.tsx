@@ -6,9 +6,9 @@ export const AppTextInput: React.FC<{ title?: string } & TextInputProps> = ({
   ...props
 }) => {
   return (
-    <View className="flex flex-col gap-3">
-      {title ? <Text>{title}</Text> : null}
-      <TextInput {...props} />
+    <View className="flex flex-col gap-3 w-full">
+      {title ? <Text className="text-sm text-white">{title}</Text> : null}
+      <TextInput className="w-full bg-white rounded-2xl py-4 px-3" {...props} />
     </View>
   );
 };

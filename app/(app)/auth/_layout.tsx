@@ -11,7 +11,7 @@ export default (): JSX.Element => {
         marginTop: -insets.top,
         marginBottom: -insets.bottom,
       }}
-      className="flex-1 relative"
+      className="flex-1 w-full relative"
     >
       <Slot />
     </View>
