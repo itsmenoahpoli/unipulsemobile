@@ -4,11 +4,12 @@ import axios, {
   type InternalAxiosRequestConfig,
   AxiosError,
 } from "axios";
+import { API_BASE_URL } from "@env";
 
 export const useApi = () => {
   const initializeBaseApi = () => {
     const baseApiInstance: AxiosInstance = axios.create({
-      baseURL: "",
+      baseURL: API_BASE_URL,
     });
 
     baseApiInstance.interceptors.request.use(
