@@ -27,8 +27,10 @@ export const SigninForm: React.FC = () => {
     },
   });
 
+  const [loading, setLoading] = React.useState<boolean>(false);
+
   const handleFormSubmit = async (formData: SignInFormData) => {
-    return await signinUser(formData);
+    return await signinUser(formData, setLoading);
   };
 
   return (
@@ -75,6 +77,7 @@ export const SigninForm: React.FC = () => {
         title="Sign in"
         className="bg-[#58E99C] w-full rounded-full items-center p-3 mt-3"
         titleClassName="text-lg text-black font-bold"
+        loading={loading}
         onPress={handleSubmit(handleFormSubmit)}
       />
     </View>
