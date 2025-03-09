@@ -1,7 +1,6 @@
 import React from "react";
 import { View } from "react-native";
 import { useForm, Controller } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   AppTextInput,
@@ -10,14 +9,8 @@ import {
   AppButton,
 } from "@/components/app/index";
 import { useAuthService } from "@/services/index";
-
-const signInSchema = z.object({
-  studentId: z.string().min(1, "Student ID is required"),
-  password: z.string().min(6, "Password must be at least 6 characters"),
-  rememberMe: z.boolean().optional(),
-});
-
-type SignInFormData = z.infer<typeof signInSchema>;
+import { authSchemas } from "@/schemas/index";
+import { type SignInFormData } from "@/types/auth.type";
 
 export const SigninForm: React.FC = () => {
   const { signinUser } = useAuthService();
@@ -26,19 +19,16 @@ export const SigninForm: React.FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<SignInFormData>({
-    resolver: zodResolver(signInSchema),
+    resolver: zodResolver(authSchemas.signInSchema),
     defaultValues: {
-      studentId: "",
-      password: "",
+      studentId: "15000616200",
+      password: "1234567890",
       rememberMe: false,
     },
   });
 
-  const handleFormSubmit = (data: SignInFormData) => {
-    signinUser({
-      studentId: data.studentId,
-      password: data.password,
-    });
+  const handleFormSubmit = async (formData: SignInFormData) => {
+    return await signinUser(formData);
   };
 
   return (
@@ -73,17 +63,7 @@ export const SigninForm: React.FC = () => {
       />
 
       <View className="flex flex-row justify-between">
-        <Controller
-          control={control}
-          name="rememberMe"
-          render={({ field: { onChange, value } }) => (
-            <AppCheckbox
-              title="Remember me"
-              titleClassName="text-sm text-white"
-              // onValueChange={onChange}
-            />
-          )}
-        />
+        <AppCheckbox title="Remember me" titleClassName="text-sm text-white" />
         <AppLink
           href="#"
           title="Forgot password?"
