@@ -41,7 +41,19 @@ export const useAuthService = () => {
       .finally(() => setLoading(false));
   };
 
+  const signoutUser = async () => {
+    await AsyncStorage.multiRemove([
+      "isAuthenticated",
+      "authToken",
+      "authUser",
+    ]).then(() => {
+      router.replace("/(app)/auth/signin");
+      Toast.warning("You've signed-out successfully");
+    });
+  };
+
   return {
     signinUser,
+    signoutUser,
   };
 };

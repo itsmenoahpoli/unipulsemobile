@@ -30,6 +30,7 @@ export const SigninForm: React.FC = () => {
   const [loading, setLoading] = React.useState<boolean>(false);
 
   const handleFormSubmit = async (formData: SignInFormData) => {
+    setLoading(true);
     return await signinUser(formData, setLoading);
   };
 

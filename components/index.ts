@@ -13,4 +13,9 @@ export {
 /**
  * Module components
  */
-export { SigninForm } from "./modules/auth/SigninForm";
+export { SigninForm } from "./modules";
+
+/**
+ * Layout components
+ */
+export { NavigationHeader } from "./layout";

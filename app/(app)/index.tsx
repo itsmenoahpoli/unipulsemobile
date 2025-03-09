@@ -2,14 +2,16 @@ import React from "react";
 import { useRouter } from "expo-router";
 import { View, Text, ActivityIndicator } from "react-native";
 import { AppLogo } from "@/components/index";
+import { useAuth } from "@/hooks/index";
 
 export default (): JSX.Element => {
   const router = useRouter();
+  const { isLoading, redirectHomeIfAuthenticated } = useAuth();
 
   React.useEffect(() => {
     setTimeout(() => {
-      router.replace("/(app)/home/overview");
-    }, 2500);
+      redirectHomeIfAuthenticated();
+    }, 1000);
   }, []);
 
   return (
