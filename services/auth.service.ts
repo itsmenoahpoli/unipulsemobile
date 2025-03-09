@@ -54,13 +54,11 @@ export const useAuthService = () => {
     setLoading: SetLoadingType
   ) => {
     return await $baseApi
-      .post<SigninApiResponse>(API_ROUTES.AUTH_SIGNIN, userDetails)
-      .then(async (response) => {
+      .post<SigninApiResponse>(API_ROUTES.AUTH_SIGNUP, userDetails)
+      .then(() => {
         Toast.info("Account created, please sign-in");
 
-        setTimeout(() => {
-          router.replace("/(app)/auth/signin");
-        }, 3000);
+        router.replace("/(app)/auth/signin");
       })
       .catch((error) => {
         Toast.error("Failed to create account, please try again later");

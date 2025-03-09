@@ -12,6 +12,7 @@ export const AppTextInput: React.FC<
         <TextInput
           className="w-full bg-white rounded-2xl py-4 px-3"
           {...props}
+          autoCapitalize="none"
         />
         {error ? (
           <Text className="text-red-400 text-sm mt-1">{error}</Text>

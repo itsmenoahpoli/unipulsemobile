@@ -1,19 +1,15 @@
 import React from "react";
 import { View } from "react-native";
+import { useRouter } from "expo-router";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  AppTextInput,
-  AppCheckbox,
-  AppLink,
-  AppButton,
-} from "@/components/app/index";
+import { AppTextInput, AppLink, AppButton } from "@/components/app/index";
 import { useAuthService } from "@/services/index";
 import { authSchemas } from "@/schemas/index";
 import { type SignUpFormData } from "@/types/auth.type";
-import { router } from "expo-router";
 
 export const SignupForm: React.FC = () => {
+  const router = useRouter();
   const { signupUser } = useAuthService();
   const {
     control,
