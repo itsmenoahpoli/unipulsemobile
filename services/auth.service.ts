@@ -55,14 +55,17 @@ export const useAuthService = () => {
   ) => {
     return await $baseApi
       .post<SigninApiResponse>(API_ROUTES.AUTH_SIGNUP, userDetails)
-      .then(() => {
+      .then((response) => {
         Toast.info("Account created, please sign-in");
-
         router.replace("/(app)/auth/signin");
       })
       .catch((error) => {
         Toast.error("Failed to create account, please try again later");
-        console.log(error);
+
+        if (error.response?.status === 422) {
+          Toast.error("Student ID/E-mail already used, please try again");
+          return;
+        }
       })
       .finally(() => setLoading(false));
   };
