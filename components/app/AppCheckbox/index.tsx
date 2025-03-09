@@ -3,11 +3,12 @@ import Checkbox from "expo-checkbox";
 import { View, Text } from "react-native";
 
 export const AppCheckbox: React.FC<{
+  isChecked?: boolean;
   title?: string;
   className?: string;
   titleClassName?: string;
-}> = ({ title, className, titleClassName }) => {
-  const [checked, setChecked] = React.useState(false);
+}> = ({ isChecked, title, className, titleClassName }) => {
+  const [checked, setChecked] = React.useState(isChecked ?? false);
 
   const handleToggleChecked = () => {
     setChecked((prevState) => !prevState);

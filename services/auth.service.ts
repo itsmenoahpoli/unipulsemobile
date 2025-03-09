@@ -10,7 +10,14 @@ export const useAuthService = () => {
   const { $baseApi } = useApi();
 
   const signinUser = async (credentials: SigninCredentials) => {
-    return await $baseApi.post(API_ROUTES.AUTH_SIGNIN, credentials);
+    return await $baseApi
+      .post(API_ROUTES.AUTH_SIGNIN, credentials)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return {
