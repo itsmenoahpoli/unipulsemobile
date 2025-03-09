@@ -11,6 +11,14 @@ type SigninCredentials = {
   password: string;
 };
 
+type SignupDetails = {
+  studentId: string;
+  password: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+};
+
 export const useAuthService = () => {
   const router = useRouter();
   const { $baseApi } = useApi();
@@ -41,6 +49,26 @@ export const useAuthService = () => {
       .finally(() => setLoading(false));
   };
 
+  const signupUser = async (
+    userDetails: SignupDetails,
+    setLoading: SetLoadingType
+  ) => {
+    return await $baseApi
+      .post<SigninApiResponse>(API_ROUTES.AUTH_SIGNIN, userDetails)
+      .then(async (response) => {
+        Toast.info("Account created, please sign-in");
+
+        setTimeout(() => {
+          router.replace("/(app)/auth/signin");
+        }, 3000);
+      })
+      .catch((error) => {
+        Toast.error("Failed to create account, please try again later");
+        console.log(error);
+      })
+      .finally(() => setLoading(false));
+  };
+
   const signoutUser = async () => {
     await AsyncStorage.multiRemove([
       "isAuthenticated",
@@ -54,6 +82,7 @@ export const useAuthService = () => {
 
   return {
     signinUser,
+    signupUser,
     signoutUser,
   };
 };

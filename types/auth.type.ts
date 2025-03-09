@@ -2,6 +2,7 @@ import { z } from "zod";
 import { authSchemas } from "@/schemas/index";
 
 export type SignInFormData = z.infer<typeof authSchemas.signInSchema>;
+export type SignUpFormData = z.infer<typeof authSchemas.signUpSchema>;
 
 export type SigninApiResponse = {
   user: {

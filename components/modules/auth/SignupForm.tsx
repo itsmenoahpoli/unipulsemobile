@@ -10,28 +10,28 @@ import {
 } from "@/components/app/index";
 import { useAuthService } from "@/services/index";
 import { authSchemas } from "@/schemas/index";
-import { type SignInFormData } from "@/types/auth.type";
+import { type SignUpFormData } from "@/types/auth.type";
 import { router } from "expo-router";
 
-export const SigninForm: React.FC = () => {
-  const { signinUser } = useAuthService();
+export const SignupForm: React.FC = () => {
+  const { signupUser } = useAuthService();
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignInFormData>({
-    resolver: zodResolver(authSchemas.signInSchema),
+  } = useForm<SignUpFormData>({
+    resolver: zodResolver(authSchemas.signUpSchema),
   });
 
   const [loading, setLoading] = React.useState<boolean>(false);
 
-  const handleFormSubmit = async (formData: SignInFormData) => {
+  const handleFormSubmit = async (formData: SignUpFormData) => {
     setLoading(true);
-    return await signinUser(formData, setLoading);
+    return await signupUser(formData, setLoading);
   };
 
-  const handleRedirectSignUp = () => {
-    router.push("/(app)/auth/signup");
+  const handleRedirectSignIn = () => {
+    router.push("/(app)/auth/signin");
   };
 
   return (
@@ -65,27 +65,61 @@ export const SigninForm: React.FC = () => {
         )}
       />
 
-      <View className="flex flex-row justify-between">
-        <AppCheckbox title="Remember me" titleClassName="text-sm text-white" />
-        <AppLink
-          href="#"
-          title="Forgot password?"
-          titleClassName="text-sm text-blue-100 underline underline-offset-4"
-        />
-      </View>
+      <Controller
+        control={control}
+        name="email"
+        render={({ field: { onChange, value } }) => (
+          <AppTextInput
+            placeholder="E-mail"
+            value={value}
+            onChangeText={onChange}
+            title="E-mail"
+            error={errors.email?.message}
+          />
+        )}
+      />
+
+      <Controller
+        control={control}
+        name="firstName"
+        render={({ field: { onChange, value } }) => (
+          <AppTextInput
+            placeholder="First Name"
+            value={value}
+            onChangeText={onChange}
+            title="First Name"
+            error={errors.firstName?.message}
+          />
+        )}
+      />
+
+      <Controller
+        control={control}
+        name="lastName"
+        render={({ field: { onChange, value } }) => (
+          <AppTextInput
+            placeholder="Last Name"
+            value={value}
+            onChangeText={onChange}
+            title="Last Name"
+            error={errors.lastName?.message}
+          />
+        )}
+      />
 
       <AppButton
-        title="Sign in"
+        title="Create Account"
         className="bg-[#58E99C] w-full rounded-full items-center p-3 mt-3"
         titleClassName="text-lg text-black font-bold"
         loading={loading}
         onPress={handleSubmit(handleFormSubmit)}
       />
+
       <AppButton
-        title="Create an Account"
+        title="Back to Sign-in"
         className="border border-[#58E99C] w-full rounded-full items-center p-3 mt-2"
         titleClassName="text-lg text-white font-bold"
-        onPress={handleRedirectSignUp}
+        onPress={handleRedirectSignIn}
       />
     </View>
   );

@@ -9,11 +9,11 @@ export default (): JSX.Element => {
     <View className="flex-1 px-5 py-2">
       <NavigationHeader />
 
-      <View className="mt-3">
-        <Text>Home page</Text>
+      <View className="text-center pt-10 mt-3">
+        <Text>Initializing & fetching data ...</Text>
       </View>
 
-      <Pressable onPress={signoutUser}>
+      <Pressable onPress={signoutUser} className="!hidden">
         <Text>Sign Out</Text>
       </Pressable>
     </View>

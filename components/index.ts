@@ -13,7 +13,7 @@ export {
 /**
  * Module components
  */
-export { SigninForm } from "./modules";
+export { SigninForm, SignupForm } from "./modules";
 
 /**
  * Layout components
