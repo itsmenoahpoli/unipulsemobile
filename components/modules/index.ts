@@ -7,3 +7,5 @@ export { AnnouncementsItem } from "./announcements/AnnouncementItem";
 export { MyAccountModal } from "./account/MyAccountModal";
 
 export { OrganizationBannersScroll } from "./organizations/OrganizationBannersScroll";
+
+export { SearchInput } from "./search/SearchInput";

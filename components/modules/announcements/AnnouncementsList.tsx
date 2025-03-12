@@ -51,7 +51,7 @@ export const AnnouncementsList: React.FC = () => {
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
-      className="flex-1 !mt-5"
+      className="flex-1 !mt-1"
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
       }

@@ -21,6 +21,7 @@ export {
   AnnouncementsItem,
   MyAccountModal,
   OrganizationBannersScroll,
+  SearchInput,
 } from "./modules";
 
 /**

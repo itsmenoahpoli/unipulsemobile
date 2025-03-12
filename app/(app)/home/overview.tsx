@@ -9,12 +9,11 @@ export default (): JSX.Element => {
       <NavigationHeader />
 
       <View className="flex-1 text-center pt-2 mt-3">
-        <View className="flex flex-col gap-3">
+        <View className="flex mb-5">
           <OrganizationBannersScroll />
-
-          <Text className="text-3xl font-bold mt-5">Announcements</Text>
         </View>
 
+        <Text className="text-3xl font-bold">Announcements</Text>
         <AnnouncementsList />
       </View>
     </View>

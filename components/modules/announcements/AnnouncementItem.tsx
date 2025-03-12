@@ -63,8 +63,8 @@ export const AnnouncementsItem: React.FC<{
             {props.announcement.body}
           </Text>
 
-          <Text className="text-sm text-right text-gray-800">
-            Posted - {formatPostedDate(props.announcement.createdAt as string)}
+          <Text className="text-sm text-right">
+            {formatPostedDate(props.announcement.createdAt as string)}
           </Text>
         </View>
       </Pressable>
