@@ -1,15 +1,20 @@
-import { View, Text, ImageBackground, ScrollView } from "react-native";
-import { NavigationHeader, AnnouncementsList } from "@/components";
-import { OrganizationBannersScroll } from "@/components";
-import { ASSETS } from "@/constants";
+import { View, Text } from "react-native";
+import {
+  NavigationHeader,
+  AnnouncementsList,
+  OrganizationBannersScroll,
+  SearchInput,
+} from "@/components";
 
 export default (): JSX.Element => {
   return (
     <View className="flex-1 px-5 py-2">
       <NavigationHeader />
 
-      <View className="flex-1 text-center pt-2 mt-3">
-        <View className="flex mb-5">
+      <View className="flex-1 text-center mt-3">
+        <SearchInput />
+
+        <View className="flex mt-5 mb-5">
           <OrganizationBannersScroll />
         </View>
 
