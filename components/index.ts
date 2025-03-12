@@ -8,6 +8,7 @@ export {
   AppCheckbox,
   AppLink,
   AppButton,
+  AppSwitch,
 } from "./app";
 
 /**

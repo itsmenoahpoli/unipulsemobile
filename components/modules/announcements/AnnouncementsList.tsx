@@ -4,7 +4,7 @@ import { AnnouncementsItem } from "./AnnouncementItem";
 
 export const AnnouncementsList: React.FC = () => {
   return (
-    <ScrollView showsHorizontalScrollIndicator={false} className="flex-1 !mt-5">
+    <ScrollView showsVerticalScrollIndicator={false} className="flex-1 !mt-5">
       <View className="flex flex-col gap-3 !pb-[40px]">
         <AnnouncementsItem />
         <AnnouncementsItem />
