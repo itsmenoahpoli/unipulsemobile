@@ -8,7 +8,7 @@ import axios, {
 export const useApi = () => {
   const initializeBaseApi = () => {
     const baseApiInstance: AxiosInstance = axios.create({
-      baseURL: "http://localhost:9000/api/v1",
+      baseURL: "http://192.168.68.107:9000/api/v1",
     });
 
     baseApiInstance.interceptors.request.use(

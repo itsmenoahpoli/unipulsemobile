@@ -1,8 +1,8 @@
 import React from "react";
 import { useRouter } from "expo-router";
 import { View, Text, ActivityIndicator } from "react-native";
-import { AppLogo } from "@/components/index";
-import { useAuth } from "@/hooks/index";
+import { AppLogo } from "@/components";
+import { useAuth } from "@/hooks";
 
 export default (): JSX.Element => {
   const router = useRouter();

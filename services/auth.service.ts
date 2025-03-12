@@ -1,8 +1,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Toast } from "react-native-toast-alert";
 import { useRouter } from "expo-router";
-import { useApi } from "@/hooks/index";
-import { API_ROUTES } from "@/constants/index";
+import { useApi } from "@/hooks";
+import { API_ROUTES } from "@/constants";
 import { type SigninApiResponse } from "@/types/auth.type";
 import { type SetLoadingType } from "@/types/common.type";
 
@@ -43,6 +43,7 @@ export const useAuthService = () => {
         }, 3000);
       })
       .catch((error) => {
+        console.log(error);
         Toast.error("Failed to sign-in, please try again later");
         console.log(error);
       })
@@ -60,6 +61,7 @@ export const useAuthService = () => {
         router.replace("/(app)/auth/signin");
       })
       .catch((error) => {
+        console.log(error);
         Toast.error("Failed to create account, please try again later");
 
         if (error.response?.status === 422) {

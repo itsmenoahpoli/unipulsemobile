@@ -7,9 +7,9 @@ import {
   AppCheckbox,
   AppLink,
   AppButton,
-} from "@/components/app/index";
-import { useAuthService } from "@/services/index";
-import { authSchemas } from "@/schemas/index";
+} from "@/components/app";
+import { useAuthService } from "@/services";
+import { authSchemas } from "@/schemas";
 import { type SignInFormData } from "@/types/auth.type";
 import { router } from "expo-router";
 

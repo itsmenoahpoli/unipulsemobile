@@ -1,21 +1,42 @@
-import { View, Text, Pressable } from "react-native";
-import { NavigationHeader } from "@/components";
-import { useAuthService } from "@/services/index";
+import { View, Text, ImageBackground, ScrollView } from "react-native";
+import { NavigationHeader, AnnouncementsList } from "@/components";
+import { ASSETS } from "@/constants";
 
 export default (): JSX.Element => {
-  const { signoutUser } = useAuthService();
-
   return (
     <View className="flex-1 px-5 py-2">
       <NavigationHeader />
 
-      <View className="text-center pt-10 mt-3">
-        <Text>Initializing & fetching data ...</Text>
-      </View>
+      <View className="flex-1 text-center pt-2 mt-3">
+        <View className="flex flex-col gap-3">
+          <ScrollView showsHorizontalScrollIndicator={false} horizontal>
+            <View className="flex flex-row gap-3">
+              <ImageBackground
+                source={ASSETS.ORG_BANNER}
+                resizeMethod="auto"
+                resizeMode="contain"
+                className="w-[220px] h-[90px] rounded-2xl shadow-sm"
+              />
+              <ImageBackground
+                source={ASSETS.ORG_BANNER}
+                resizeMethod="auto"
+                resizeMode="contain"
+                className="w-[220px] h-[90px] rounded-2xl shadow-sm"
+              />
+              <ImageBackground
+                source={ASSETS.ORG_BANNER}
+                resizeMethod="auto"
+                resizeMode="contain"
+                className="w-[220px] h-[90px] rounded-2xl shadow-sm"
+              />
+            </View>
+          </ScrollView>
 
-      <Pressable onPress={signoutUser} className="!hidden">
-        <Text>Sign Out</Text>
-      </Pressable>
+          <Text className="text-3xl font-bold mt-5">Announcements</Text>
+        </View>
+
+        <AnnouncementsList />
+      </View>
     </View>
   );
 };

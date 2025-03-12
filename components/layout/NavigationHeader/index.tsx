@@ -1,8 +1,8 @@
 import React from "react";
 import { Bell } from "lucide-react-native";
 import { View, Text, Pressable, Image } from "react-native";
-import { useAuth } from "@/hooks/index";
-import { ASSETS } from "@/constants/index";
+import { useAuth } from "@/hooks";
+import { ASSETS } from "@/constants";
 
 export const NavigationHeader: React.FC = () => {
   const {
@@ -19,7 +19,7 @@ export const NavigationHeader: React.FC = () => {
           resizeMethod="resize"
           resizeMode="contain"
         />
-        <Text className="text-sm font-extrabold">
+        <Text className="text-[15px] font-extrabold">
           Hello, {authUser?.firstName} {authUser?.lastName} - CETA
         </Text>
       </View>

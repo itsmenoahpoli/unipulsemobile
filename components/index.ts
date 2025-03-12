@@ -13,9 +13,15 @@ export {
 /**
  * Module components
  */
-export { SigninForm, SignupForm } from "./modules";
+export {
+  SigninForm,
+  SignupForm,
+  AnnouncementsList,
+  AnnouncementsItem,
+  MyAccountModal,
+} from "./modules";
 
 /**
  * Layout components
  */
-export { NavigationHeader } from "./layout";
+export { NavigationHeader, NavigationFooter } from "./layout";

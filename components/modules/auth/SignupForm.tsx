@@ -3,9 +3,9 @@ import { View } from "react-native";
 import { useRouter } from "expo-router";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AppTextInput, AppLink, AppButton } from "@/components/app/index";
-import { useAuthService } from "@/services/index";
-import { authSchemas } from "@/schemas/index";
+import { AppTextInput, AppLink, AppButton } from "@/components/app";
+import { useAuthService } from "@/services";
+import { authSchemas } from "@/schemas";
 import { type SignUpFormData } from "@/types/auth.type";
 
 export const SignupForm: React.FC = () => {
@@ -16,6 +16,13 @@ export const SignupForm: React.FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<SignUpFormData>({
+    defaultValues: {
+      studentId: "123",
+      password: "123",
+      email: "name@domain.com",
+      firstName: "firstName",
+      lastName: "lastName",
+    },
     resolver: zodResolver(authSchemas.signUpSchema),
   });
 
