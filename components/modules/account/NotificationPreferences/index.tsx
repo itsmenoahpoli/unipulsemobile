@@ -24,8 +24,8 @@ export const NotificationPreferences: React.FC = () => {
   };
 
   return (
-    <View>
-      <Text className="text-xl font-bold mb-8">Notification Preferences</Text>
+    <View className="border-t border-b border-gray-200 py-6">
+      <Text className="text-xl font-bold mb-3">Notification Preferences</Text>
 
       <View className="flex flex-col gap-4">
         <View className="flex flex-row justify-between items-center">

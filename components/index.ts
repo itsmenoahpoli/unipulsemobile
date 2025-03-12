@@ -20,6 +20,7 @@ export {
   AnnouncementsList,
   AnnouncementsItem,
   MyAccountModal,
+  OrganizationBannersScroll,
 } from "./modules";
 
 /**

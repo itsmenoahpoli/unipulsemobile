@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 
 export const EngagementHistory: React.FC = () => {
   return (
-    <View className="flex">
+    <View className="flex border-b border-gray-200 py-6">
       <Text className="text-xl font-bold mb-8">EngagementHistory</Text>
 
       <View className="flex flex-col gap-1">

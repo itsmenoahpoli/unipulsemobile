@@ -45,9 +45,8 @@ export const useAuthService = () => {
       .catch((error) => {
         console.log(error);
         Toast.error("Failed to sign-in, please try again later");
-        console.log(error);
-      })
-      .finally(() => setLoading(false));
+        setLoading(false);
+      });
   };
 
   const signupUser = async (

@@ -47,7 +47,7 @@ export const MyAccountModal: React.FC<{
                 <UserHero user={authUser} />
               </View>
 
-              <View className="flex flex-col gap-10">
+              <View className="flex flex-col">
                 <NotificationPreferences />
                 <AccountSettings />
                 <EngagementHistory />
