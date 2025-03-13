@@ -1,3 +1,4 @@
 import { Announcement } from "./models.type";
 
-export type AnnouncementsApiResponse = Announcement[];
+export type FetchAnnouncementsApiResponse = Announcement[];
+export type CreateAnnouncementsApiResponse = Announcement[];

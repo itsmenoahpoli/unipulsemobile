@@ -10,7 +10,7 @@ export const AppTextInput: React.FC<
 
       <View>
         <TextInput
-          className="w-full bg-white rounded-2xl py-4 px-3"
+          className="w-full bg-white rounded-2xl placeholder:text-gray-400 py-4 px-3"
           {...props}
           autoCapitalize="none"
         />
