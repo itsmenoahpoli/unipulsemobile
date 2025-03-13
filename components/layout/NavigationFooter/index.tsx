@@ -15,6 +15,7 @@ const ICON_SIZE = 28;
 export const NavigationFooter: React.FC = () => {
   const router = useRouter();
   const { isCurrentUserAdmin } = useAuth();
+  const [active, setActive] = React.useState<string>("home");
   const [modals, setModals] = React.useState<ModalsState>({
     profile: false,
     announcement: false,
@@ -23,8 +24,18 @@ export const NavigationFooter: React.FC = () => {
   const handleModal = (modal: keyof ModalsState, isOpen: boolean) => {
     setModals((prev) => ({ ...prev, [modal]: isOpen }));
   };
+
   const handleCloseModals = () => {
     setModals({ profile: false, announcement: false });
+  };
+
+  const checkActive = (path: string) => {
+    return active === path ? "blue" : "green";
+  };
+
+  const handleItemPress = (path: any, key: string) => {
+    setActive(key);
+    router.push(path);
   };
 
   return (
@@ -36,11 +47,15 @@ export const NavigationFooter: React.FC = () => {
       />
 
       <View className="h-16 w-[85%] flex flex-row justify-between items-center bg-white rounded-full shadow-sm !px-[20px]">
-        <Pressable onPress={() => router.push("/(app)/home/overview")}>
-          <House size={ICON_SIZE} color="#555" />
+        <Pressable
+          onPress={() => handleItemPress("/(app)/home/overview", "home")}
+        >
+          <House size={ICON_SIZE} color={checkActive("home")} />
         </Pressable>
-        <Pressable onPress={() => router.push("/(app)/home/explore")}>
-          <Search size={ICON_SIZE} color="#555" />
+        <Pressable
+          onPress={() => handleItemPress("/(app)/home/explore", "explore")}
+        >
+          <Search size={ICON_SIZE} color={checkActive("explore")} />
         </Pressable>
         {isCurrentUserAdmin() ? (
           <Pressable
@@ -50,11 +65,13 @@ export const NavigationFooter: React.FC = () => {
             <Plus size={ICON_SIZE} color="#fff" />
           </Pressable>
         ) : null}
-        <Pressable onPress={() => router.push("/(app)/home/forums")}>
-          <MessageCircle size={ICON_SIZE} color="#555" />
+        <Pressable
+          onPress={() => handleItemPress("/(app)/home/forums", "forums")}
+        >
+          <MessageCircle size={ICON_SIZE} color={checkActive("forums")} />
         </Pressable>
         <Pressable onPress={() => handleModal("profile", true)}>
-          <User size={ICON_SIZE} color="#555" />
+          <User size={ICON_SIZE} color={checkActive("profile")} />
         </Pressable>
       </View>
     </>

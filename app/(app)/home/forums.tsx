@@ -4,9 +4,9 @@ import { SearchInput } from "@/components";
 export default (): JSX.Element => {
   return (
     <View className="flex-1 px-5 py-2">
-      <Text className="text-lg font-bold">Forums</Text>
+      <Text className="text-2xl font-bold mt-4">Forums</Text>
 
-      <View className="flex-1 text-center mt-3">
+      <View className="flex-1 text-center mt-7">
         <SearchInput />
       </View>
     </View>
