@@ -53,10 +53,19 @@ export const useAuth = () => {
     }
   };
 
+  const isCurrentUserAdmin = () => {
+    if (userData.authUser) {
+      return userData.authUser.isAdmin;
+    }
+
+    return false;
+  };
+
   return {
     isAuthenticated,
     isLoading,
     authUserData,
+    isCurrentUserAdmin,
     checkAuthStatus,
     redirectHomeIfAuthenticated,
   };

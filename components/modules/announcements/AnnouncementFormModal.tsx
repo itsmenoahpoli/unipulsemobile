@@ -41,7 +41,7 @@ export const AnnouncementFormModal: React.FC<{
       <StatusBar style="dark" />
       <View className="flex-1 items-center justify-center bg-gray-100">
         <Modal
-          animationType="fade"
+          animationType="slide"
           transparent={false}
           visible={props.open}
           onRequestClose={() => props.handleClose()}

@@ -17,7 +17,7 @@ export default (): JSX.Element => {
       >
         <Slot />
 
-        <View className="flex justify-center items-center fixed bottom-5">
+        <View className="flex justify-center items-center fixed bottom-0">
           <NavigationFooter />
         </View>
       </View>

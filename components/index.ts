@@ -19,8 +19,10 @@ export {
   SignupForm,
   AnnouncementsList,
   AnnouncementsItem,
+  AnnouncementBoards,
   MyAccountModal,
   OrganizationBannersScroll,
+  CommunityForumsList,
   SearchInput,
 } from "./modules";
 

@@ -21,49 +21,47 @@ export const MyAccountModal: React.FC<{
   return (
     <>
       <StatusBar style="dark" />
-      <View className="flex-1 items-center justify-center bg-gray-100">
-        <Modal
-          animationType="fade"
-          transparent={false}
-          visible={props.open}
-          onRequestClose={() => props.handleClose()}
+      <Modal
+        animationType="fade"
+        transparent={false}
+        visible={props.open}
+        onRequestClose={() => props.handleClose()}
+      >
+        <View
+          className="flex-1 relative"
+          style={{
+            marginTop: insets.top,
+            marginBottom: insets.bottom,
+          }}
         >
-          <View
-            className="flex-1 relative"
-            style={{
-              marginTop: insets.top,
-              marginBottom: insets.bottom,
-            }}
-          >
-            <View className="flex flex-col p-5">
-              <View className="flex flex-row justify-between">
-                <Text className="text-3xl font-bold">Manage Profile</Text>
-                <Pressable onPress={props.handleClose}>
-                  <CloseIcon color="#222" />
-                </Pressable>
-              </View>
-
-              <View className="mt-7 mb-[50px]">
-                <UserHero user={authUser} />
-              </View>
-
-              <View className="flex flex-col">
-                <NotificationPreferences />
-                <AccountSettings />
-                <EngagementHistory />
-              </View>
-            </View>
-
-            <View className="w-full flex justify-center absolute bottom-5">
-              <Pressable className="w-[95%] h-[50px] bg-[#1C1B1F] rounded-2xl justify-center mx-auto">
-                <Text className="text-md text-white font-bold self-center">
-                  Save Changes
-                </Text>
+          <View className="flex flex-col p-5">
+            <View className="flex flex-row justify-between">
+              <Text className="text-3xl font-bold">Manage Profile</Text>
+              <Pressable onPress={props.handleClose}>
+                <CloseIcon color="#222" />
               </Pressable>
             </View>
+
+            <View className="mt-7 mb-[50px]">
+              <UserHero user={authUser} />
+            </View>
+
+            <View className="flex flex-col">
+              <NotificationPreferences />
+              <AccountSettings />
+              <EngagementHistory />
+            </View>
           </View>
-        </Modal>
-      </View>
+
+          <View className="w-full flex justify-center absolute bottom-5">
+            <Pressable className="w-[95%] h-[50px] bg-[#1C1B1F] rounded-2xl justify-center mx-auto">
+              <Text className="text-md text-white font-bold self-center">
+                Save Changes
+              </Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
     </>
   );
 };

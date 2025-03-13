@@ -41,7 +41,7 @@ export const SigninForm: React.FC = () => {
         name="studentId"
         render={({ field: { onChange, value } }) => (
           <AppTextInput
-            placeholder="Student ID"
+            placeholder="Account ID"
             value={value}
             onChangeText={onChange}
             title="Student ID"
