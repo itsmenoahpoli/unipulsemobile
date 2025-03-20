@@ -31,7 +31,9 @@ export const AnnouncementsList: React.FC = () => {
     setLoading(true);
     const data = await fetchAnnouncements();
     setAnnouncements(data);
-    setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   };
 
   const handleRefresh = async () => {
@@ -57,7 +59,7 @@ export const AnnouncementsList: React.FC = () => {
       }
     >
       <View className="flex flex-col gap-3 !pb-[40px]">
-        {!loading && announcements.length === 0 ? (
+        {!loading || announcements.length === 0 ? (
           <EmptyListBanner onRefresh={handleRefresh} />
         ) : (
           announcements.map((announcement) => (
