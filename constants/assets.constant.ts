@@ -4,6 +4,8 @@ import {
   SCHOOL_LOGO,
   ORG_BANNER,
   ANNOUNCEMENT_BANNER,
+  ONGOING_IMG,
+  UPCOMING_IMG,
 } from "@/assets";
 
 export const ASSETS = {
@@ -12,4 +14,6 @@ export const ASSETS = {
   SCHOOL_LOGO,
   ORG_BANNER,
   ANNOUNCEMENT_BANNER,
+  ONGOING_IMG,
+  UPCOMING_IMG,
 } as const;

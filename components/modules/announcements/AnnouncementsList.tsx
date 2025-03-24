@@ -59,7 +59,7 @@ export const AnnouncementsList: React.FC = () => {
       }
     >
       <View className="flex flex-col gap-3 !pb-[40px]">
-        {!loading || announcements.length === 0 ? (
+        {!loading && announcements.length === 0 ? (
           <EmptyListBanner onRefresh={handleRefresh} />
         ) : (
           announcements.map((announcement) => (

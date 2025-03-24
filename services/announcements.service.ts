@@ -1,5 +1,4 @@
 import { Alert } from "react-native";
-import { useRouter } from "expo-router";
 import { useApi } from "@/hooks";
 import {
   type FetchAnnouncementsApiResponse,
@@ -8,7 +7,6 @@ import {
 import { type Announcement } from "@/types/models.type";
 
 export const useAnnouncementsService = () => {
-  const router = useRouter();
   const { $baseApi } = useApi();
 
   const fetchAnnouncements = async () => {

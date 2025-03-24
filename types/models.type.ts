@@ -6,3 +6,5 @@ export type Announcement = {
   image?: string;
   isPublished: boolean;
 } & DBFields;
+
+export type Event = {} & DBFields;

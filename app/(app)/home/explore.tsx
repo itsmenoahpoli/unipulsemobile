@@ -16,9 +16,7 @@ export default (): JSX.Element => {
         <ScrollView showsVerticalScrollIndicator={false} className="flex-1">
           <View className="flex-1 flex-col gap-10">
             <View className="flex-1">
-              <Text className="text-lg font-bold mt-5 mb-2">
-                Announcement Board
-              </Text>
+              <Text className="text-lg font-bold mt-5 mb-2">Events Board</Text>
               <AnnouncementBoards />
             </View>
 
