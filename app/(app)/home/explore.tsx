@@ -1,3 +1,4 @@
+import { useRouter } from "expo-router";
 import { View, Text, Pressable, ScrollView } from "react-native";
 import {
   SearchInput,
@@ -6,6 +7,12 @@ import {
 } from "@/components";
 
 export default (): JSX.Element => {
+  const router = useRouter();
+
+  const handleViewAllForums = () => {
+    router.push("/(app)/home/forums");
+  };
+
   return (
     <View className="flex-1 px-5 py-2">
       <Text className="text-2xl font-bold mt-4">Explore</Text>
@@ -24,7 +31,7 @@ export default (): JSX.Element => {
               <View className="flex flex-row justify-between items-center">
                 <Text className="text-lg font-bold">Community Forums</Text>
 
-                <Pressable>
+                <Pressable onPress={handleViewAllForums}>
                   <Text className="text-green-500">See All</Text>
                 </Pressable>
               </View>

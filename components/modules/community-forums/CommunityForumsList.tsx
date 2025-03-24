@@ -17,10 +17,16 @@ const communityForums = [
   },
 ];
 
-export const CommunityForumsList: React.FC = () => {
+export const CommunityForumsList: React.FC<{ limit?: number | null }> = ({
+  limit = null,
+}) => {
+  const displayedForums = limit
+    ? communityForums.slice(0, limit)
+    : communityForums;
+
   return (
     <View className="flex flex-col gap-5 mt-5">
-      {communityForums.map((cf) => (
+      {displayedForums.map((cf) => (
         <View
           key={cf.name}
           className="bg-white flex flex-row items-center rounded-xl gap-3 py-3 px-4"

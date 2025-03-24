@@ -1,5 +1,5 @@
-import { View, Text } from "react-native";
-import { SearchInput } from "@/components";
+import { View, Text, ScrollView } from "react-native";
+import { SearchInput, CommunityForumsList } from "@/components";
 
 export default (): JSX.Element => {
   return (
@@ -8,6 +8,13 @@ export default (): JSX.Element => {
 
       <View className="flex-1 text-center mt-7">
         <SearchInput />
+
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          className="flex-1 mt-2"
+        >
+          <CommunityForumsList />
+        </ScrollView>
       </View>
     </View>
   );
