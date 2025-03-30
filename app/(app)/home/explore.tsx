@@ -1,5 +1,11 @@
 import { useRouter } from "expo-router";
-import { View, Text, Pressable, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  Pressable,
+  ScrollView,
+  ActivityIndicator,
+} from "react-native";
 import {
   SearchInput,
   AnnouncementBoards,
@@ -46,6 +52,13 @@ export default (): JSX.Element => {
                 <Pressable>
                   <Text className="text-green-500">See All</Text>
                 </Pressable>
+              </View>
+
+              <View className="flex flex-col gap-y-4 mt-10">
+                <ActivityIndicator />
+                <Text className="text-sm text-gray-600 text-center">
+                  Fetching ...
+                </Text>
               </View>
             </View>
           </View>
