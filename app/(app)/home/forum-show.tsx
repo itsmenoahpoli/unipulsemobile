@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import React from "react";
 import {
   View,
@@ -19,9 +20,11 @@ type ForumParams = {
 
 export default function ForumScreen() {
   const router = useRouter();
-  const { fetchForumPosts } = useForumsService();
+  const { fetchForumPosts, createForumPost } = useForumsService();
   const { forumId, forumName } = useLocalSearchParams<ForumParams>();
   const [posts, setPosts] = React.useState<any>([]);
+  const [postContent, setPostContent] = React.useState("");
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   const handleGoBack = () => {
     router.back();
@@ -40,6 +43,31 @@ export default function ForumScreen() {
     fetchPosts();
     return () => setPosts([]);
   }, [forumId]);
+
+  const handleCreatePost = async () => {
+    if (!postContent.trim()) return;
+
+    try {
+      setIsSubmitting(true);
+      const authUserStr = await AsyncStorage.getItem("authUser");
+      if (!authUserStr) return;
+
+      const authUser = JSON.parse(authUserStr);
+
+      await createForumPost({
+        forumId: Number(forumId),
+        userId: authUser.id,
+        content: postContent.trim(),
+      });
+
+      setPostContent("");
+      fetchPosts();
+    } catch (error) {
+      console.error("Failed to create post:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <View className="flex-1 bg-white px-4 py-2">
@@ -74,10 +102,19 @@ export default function ForumScreen() {
 
       <View className="flex-row items-center bg-gray-100 rounded-full px-4 py-2 mt-3">
         <TextInput
-          placeholder="Hello..."
+          placeholder="Input post content ..."
           className="flex-1 text-gray-700 text-base"
+          value={postContent}
+          onChangeText={setPostContent}
+          editable={!isSubmitting}
         />
-        <SendIcon size={24} className="text-gray-500" />
+        <Pressable
+          className="z-50"
+          onPress={handleCreatePost}
+          disabled={isSubmitting}
+        >
+          <SendIcon size={24} color={isSubmitting ? "darkgreen" : "green"} />
+        </Pressable>
       </View>
     </View>
   );

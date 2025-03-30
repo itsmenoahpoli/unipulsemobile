@@ -18,8 +18,17 @@ export const useForumsService = () => {
     return response.data;
   };
 
+  const createForumPost = async (data: any) => {
+    const response = await $baseApi.post(`/forums/${data.forumId}/posts`, data);
+
+    if (response.status === 201) {
+      Alert.alert("Success", "Post uploaded successfully");
+    }
+  };
+
   return {
     fetchForums,
     fetchForumPosts,
+    createForumPost,
   };
 };
